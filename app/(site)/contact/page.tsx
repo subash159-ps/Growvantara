@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   description: `Get a free consultation from ${brand.name} and find out how we can help grow your business.`,
 };
 
+// Reads live, admin-editable content — render per-request rather than at
+// build time, so the build never depends on database reachability.
+export const dynamic = "force-dynamic";
+
 export default async function ContactPage() {
   const services = await prisma.service.findMany({
     where: { published: true },

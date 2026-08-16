@@ -13,6 +13,10 @@ export const metadata: Metadata = {
   description: `Explore ${brand.name}'s digital marketing services — web design, SEO, social media, Google Ads, Meta Ads, content marketing, and branding.`,
 };
 
+// Reads live, admin-editable content — render per-request rather than at
+// build time, so the build never depends on database reachability.
+export const dynamic = "force-dynamic";
+
 export default async function ServicesPage() {
   const services = await prisma.service.findMany({
     where: { published: true },

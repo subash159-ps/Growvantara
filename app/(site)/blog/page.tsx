@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   description: `Marketing insights and updates from ${brand.name}.`,
 };
 
+// Reads live, admin-editable content — render per-request rather than at
+// build time, so the build never depends on database reachability.
+export const dynamic = "force-dynamic";
+
 export default async function BlogPage() {
   const posts = await prisma.blogPost.findMany({
     where: { published: true },

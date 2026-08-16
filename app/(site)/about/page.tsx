@@ -30,8 +30,8 @@ export default function AboutPage() {
             across web, SEO, ads, and content.
           </p>
           <p>
-            As a growing agency, we're upfront about where we are: we're
-            building our client portfolio, and every project on our site is
+            As a growing agency, we&apos;re upfront about where we are:
+            we&apos;re building our client portfolio, and every project on our site is
             clearly labeled as a demo, concept, or real client result. What
             you see is what you get.
           </p>

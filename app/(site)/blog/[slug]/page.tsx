@@ -5,6 +5,10 @@ import { jsonLdScript } from "@/lib/seo/json-ld";
 
 type Props = { params: Promise<{ slug: string }> };
 
+// Reads live, admin-editable content — render per-request rather than at
+// build time, so the build never depends on database reachability.
+export const dynamic = "force-dynamic";
+
 async function getPost(slug: string) {
   return prisma.blogPost.findFirst({ where: { slug, published: true } });
 }

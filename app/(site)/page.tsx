@@ -11,6 +11,10 @@ import { ContactCta } from "@/components/sections/contact-cta";
 import { brand } from "@/lib/brand";
 import { jsonLdScript } from "@/lib/seo/json-ld";
 
+// Reads live, admin-editable content — render per-request rather than at
+// build time, so the build never depends on database reachability.
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   const [services, portfolioItems, testimonials] = await Promise.all([
     prisma.service.findMany({

@@ -1,3 +1,4 @@
+import { createElement } from "react";
 import Image from "next/image";
 import { ImageIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
@@ -5,7 +6,9 @@ import { getServiceIcon } from "@/lib/service-icons";
 import type { Portfolio } from "@/app/generated/prisma/client";
 
 export function PortfolioCard({ item }: { item: Portfolio }) {
-  const CategoryIcon = item.category ? getServiceIcon(item.category) : ImageIcon;
+  const categoryIcon = createElement(item.category ? getServiceIcon(item.category) : ImageIcon, {
+    className: "size-9 text-foreground/20",
+  });
 
   return (
     <div className="group overflow-hidden rounded-xl border border-border transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
@@ -18,9 +21,7 @@ export function PortfolioCard({ item }: { item: Portfolio }) {
             className="object-cover transition-transform group-hover:scale-105"
           />
         ) : (
-          <div className="flex h-full items-center justify-center">
-            <CategoryIcon className="size-9 text-foreground/20" />
-          </div>
+          <div className="flex h-full items-center justify-center">{categoryIcon}</div>
         )}
         <Badge
           variant={item.type === "DEMO" ? "default" : "secondary"}

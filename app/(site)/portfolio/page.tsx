@@ -10,6 +10,10 @@ export const metadata: Metadata = {
   description: `${brand.name}'s work — demo and concept projects showcasing our web design, SEO, branding, and marketing capabilities.`,
 };
 
+// Reads live, admin-editable content — render per-request rather than at
+// build time, so the build never depends on database reachability.
+export const dynamic = "force-dynamic";
+
 export default async function PortfolioPage() {
   const items = await prisma.portfolio.findMany({
     where: { published: true },
