@@ -1,0 +1,60 @@
+import { prisma } from "@/lib/db";
+import { Hero } from "@/components/hero/hero";
+import { ServicesSection } from "@/components/sections/services-section";
+import { WhySection } from "@/components/sections/why-section";
+import { ProcessSection } from "@/components/sections/process-section";
+import { PortfolioSection } from "@/components/sections/portfolio-section";
+import { CaseStudiesSection } from "@/components/sections/case-studies-section";
+import { TestimonialsSection } from "@/components/sections/testimonials-section";
+import { FaqSection } from "@/components/sections/faq-section";
+import { ContactCta } from "@/components/sections/contact-cta";
+import { brand } from "@/lib/brand";
+import { jsonLdScript } from "@/lib/seo/json-ld";
+
+export default async function Home() {
+  const [services, portfolioItems, testimonials] = await Promise.all([
+    prisma.service.findMany({
+      where: { published: true },
+      orderBy: { order: "asc" },
+      take: 6,
+    }),
+    prisma.portfolio.findMany({
+      where: { published: true },
+      orderBy: { createdAt: "desc" },
+      take: 6,
+    }),
+    prisma.testimonial.findMany({
+      where: { published: true },
+      orderBy: { createdAt: "desc" },
+      take: 6,
+    }),
+  ]);
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MarketingAgency",
+    name: brand.name,
+    description: brand.description,
+    email: brand.email,
+    telephone: brand.phone,
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: jsonLdScript(jsonLd) }}
+      />
+      <Hero />
+      <ServicesSection services={services} />
+      <WhySection />
+      <ProcessSection />
+      <PortfolioSection items={portfolioItems} />
+      <CaseStudiesSection />
+      <TestimonialsSection testimonials={testimonials} />
+      <FaqSection />
+      <ContactCta />
+    </>
+  );
+}
