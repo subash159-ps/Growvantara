@@ -16,7 +16,12 @@ import {
 } from "@/components/ui/select";
 import type { Service } from "@/app/generated/prisma/client";
 
-const budgets = ["Under $1,000/mo", "$1,000 - $3,000/mo", "$3,000 - $10,000/mo", "$10,000+/mo"];
+const budgets = [
+  "Under ₹25,000/mo",
+  "₹25,000 - ₹75,000/mo",
+  "₹75,000 - ₹2,00,000/mo",
+  "₹2,00,000+/mo",
+];
 
 export function ContactForm({ services }: { services: Service[] }) {
   const searchParams = useSearchParams();
