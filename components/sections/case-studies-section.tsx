@@ -1,9 +1,15 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Megaphone, PenTool, Search, type LucideIcon } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { SectionHeading } from "./section-heading";
 import { caseStudies } from "@/lib/data/case-studies";
+
+const categoryIcons: Record<string, LucideIcon> = {
+  SEO: Search,
+  "Meta Ads": Megaphone,
+  "Content Marketing": PenTool,
+};
 
 export function CaseStudiesSection() {
   return (
@@ -15,25 +21,31 @@ export function CaseStudiesSection() {
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-3">
-        {caseStudies.map((study) => (
-          <Card
-            key={study.slug}
-            className="h-full transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
-          >
-            <CardHeader>
-              <Badge variant="secondary" className="w-fit">
-                Concept Case Study
-              </Badge>
-              <CardTitle className="mt-2">{study.title}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-xs font-semibold uppercase tracking-wide text-primary">
-                {study.category}
-              </p>
-              <p className="mt-3 text-sm text-muted-foreground">{study.challenge}</p>
-            </CardContent>
-          </Card>
-        ))}
+        {caseStudies.map((study) => {
+          const Icon = categoryIcons[study.category] ?? Search;
+          return (
+            <Card
+              key={study.slug}
+              className="h-full transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
+            >
+              <CardHeader>
+                <div className="flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <Icon className="size-5" />
+                </div>
+                <Badge variant="secondary" className="mt-3 w-fit">
+                  Concept Case Study
+                </Badge>
+                <CardTitle className="mt-2">{study.title}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+                  {study.category}
+                </p>
+                <p className="mt-3 text-sm text-muted-foreground">{study.challenge}</p>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
 
       <div className="mt-10 text-center">

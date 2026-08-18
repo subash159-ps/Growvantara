@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight, Briefcase, MessageCircleHeart, TrendingUp } from "lucide-react";
+import { ArrowUpRight, Briefcase, MessageCircleHeart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnalyticsDashboardIllustration } from "@/components/illustrations/marketing-illustrations";
 
 const stats = [
   { value: "7", label: "Core services offered" },
@@ -68,16 +69,12 @@ export function Hero() {
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <div className="col-span-2 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-6">
-            <div className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-white/10">
-              <TrendingUp className="size-7 text-primary" />
-            </div>
-            <div>
-              <p className="font-semibold">Strategy-led growth</p>
-              <p className="mt-1 text-sm text-navy-muted">
-                Every campaign starts with your business goals.
-              </p>
-            </div>
+          <div className="col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6">
+            <AnalyticsDashboardIllustration className="h-auto w-full" />
+            <p className="mt-4 font-semibold">Strategy-led growth</p>
+            <p className="mt-1 text-sm text-navy-muted">
+              Every campaign starts with your business goals.
+            </p>
           </div>
 
           <div className="flex flex-col justify-between rounded-2xl bg-primary p-5 text-primary-foreground">
