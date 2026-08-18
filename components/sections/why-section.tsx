@@ -49,8 +49,8 @@ export function WhySection() {
           <div className="grid gap-8 sm:grid-cols-2">
             {points.map((point) => (
               <div key={point.title} className="text-center sm:text-left">
-                <div className="mx-auto flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary sm:mx-0">
-                  <point.icon className="size-5" />
+                <div className="mx-auto flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm sm:mx-0">
+                  <point.icon className="size-5" strokeWidth={2.5} />
                 </div>
                 <p className="mt-4 font-semibold">{point.title}</p>
                 <p className="mt-2 text-sm text-muted-foreground">{point.description}</p>
