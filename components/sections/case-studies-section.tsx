@@ -26,11 +26,11 @@ export function CaseStudiesSection() {
           return (
             <Card
               key={study.slug}
-              className="h-full transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
+              className="h-full shadow-md transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"
             >
               <CardHeader>
-                <div className="flex size-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
-                  <Icon className="size-5" />
+                <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
+                  <Icon className="size-5" strokeWidth={2.5} />
                 </div>
                 <Badge variant="secondary" className="mt-3 w-fit">
                   Concept Case Study
