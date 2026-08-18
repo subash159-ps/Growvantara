@@ -10,23 +10,23 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-navy text-navy-foreground">
+    <section className="relative overflow-hidden bg-background text-foreground">
       <div
-        className="pointer-events-none absolute -top-32 left-1/3 -z-10 size-[32rem] rounded-full bg-primary/20 blur-3xl"
+        className="pointer-events-none absolute -top-32 left-1/3 -z-10 size-[32rem] rounded-full bg-primary/10 blur-3xl"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -bottom-24 -right-24 -z-10 size-[26rem] rounded-full bg-brand-accent/20 blur-3xl"
+        className="pointer-events-none absolute -bottom-24 -right-24 -z-10 size-[26rem] rounded-full bg-brand-accent/10 blur-3xl"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(color-mix(in_oklch,var(--navy-foreground),transparent_90%)_1px,transparent_1px)] [background-size:24px_24px]"
+        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(color-mix(in_oklch,var(--foreground),transparent_94%)_1px,transparent_1px)] [background-size:24px_24px]"
         aria-hidden
       />
 
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-2 lg:items-center lg:gap-8">
         <div>
-          <p className="text-sm font-medium text-navy-muted">
+          <p className="text-sm font-medium text-muted-foreground">
             Built for visibility.{" "}
             <span className="text-primary">Designed for conversion.</span>
           </p>
@@ -37,7 +37,7 @@ export function Hero() {
               Marketing
             </span>
           </h1>
-          <p className="mt-6 max-w-lg text-pretty text-navy-muted">
+          <p className="mt-6 max-w-lg text-pretty text-muted-foreground">
             Global Hood helps businesses build their online presence, attract
             customers, and grow through digital marketing strategies.
           </p>
@@ -51,7 +51,6 @@ export function Hero() {
               size="lg"
               variant="outline"
               nativeButton={false}
-              className="border-white/20 bg-transparent text-navy-foreground hover:bg-white/10 hover:text-navy-foreground"
               render={<Link href="/services" />}
             >
               Explore Services
@@ -62,22 +61,22 @@ export function Hero() {
             {stats.map((stat) => (
               <div key={stat.label}>
                 <p className="text-3xl font-bold">{stat.value}</p>
-                <p className="mt-1 text-sm text-navy-muted">{stat.label}</p>
+                <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
               </div>
             ))}
           </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4">
-          <div className="col-span-2 rounded-2xl border border-white/10 bg-white/5 p-6">
+          <div className="col-span-2 rounded-2xl border border-border bg-card p-6 shadow-sm">
             <AnalyticsDashboardIllustration className="h-auto w-full" />
             <p className="mt-4 font-semibold">Strategy-led growth</p>
-            <p className="mt-1 text-sm text-navy-muted">
+            <p className="mt-1 text-sm text-muted-foreground">
               Every campaign starts with your business goals.
             </p>
           </div>
 
-          <div className="flex flex-col justify-between rounded-2xl bg-primary p-5 text-primary-foreground">
+          <div className="flex flex-col justify-between rounded-2xl bg-primary p-5 text-primary-foreground shadow-sm">
             <Briefcase className="size-6" />
             <div className="mt-4">
               <p className="text-2xl font-bold">7+</p>
@@ -85,7 +84,7 @@ export function Hero() {
             </div>
           </div>
 
-          <div className="flex flex-col justify-between rounded-2xl bg-brand-accent p-5 text-brand-accent-foreground">
+          <div className="flex flex-col justify-between rounded-2xl bg-brand-accent p-5 text-brand-accent-foreground shadow-sm">
             <MessageCircleHeart className="size-6" />
             <div className="mt-4">
               <p className="text-lg font-bold">Free</p>

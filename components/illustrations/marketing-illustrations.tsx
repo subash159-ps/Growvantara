@@ -6,9 +6,9 @@ export function AnalyticsDashboardIllustration({ className }: { className?: stri
     <svg viewBox="0 0 480 220" className={className} role="img" aria-label="Campaign performance dashboard">
       <circle cx="20" cy="20" r="5" fill="var(--brand-accent)" opacity="0.8" />
       <circle cx="36" cy="20" r="5" fill="var(--primary)" opacity="0.8" />
-      <circle cx="52" cy="20" r="5" fill="white" opacity="0.25" />
+      <circle cx="52" cy="20" r="5" fill="var(--muted-foreground)" opacity="0.35" />
 
-      <line x1="40" y1="190" x2="440" y2="190" stroke="white" strokeOpacity="0.12" />
+      <line x1="40" y1="190" x2="440" y2="190" stroke="var(--border)" />
 
       <rect x="60" y="120" width="44" height="70" rx="6" fill="var(--primary)" opacity="0.25" />
       <rect x="140" y="80" width="44" height="110" rx="6" fill="var(--primary)" opacity="0.25" />
