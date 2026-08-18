@@ -27,11 +27,26 @@ export function LogoMark({ className }: { className?: string }) {
   );
 }
 
-export function Logo({ className, markClassName }: { className?: string; markClassName?: string }) {
+export function Logo({
+  className,
+  markClassName,
+  showTagline = false,
+}: {
+  className?: string;
+  markClassName?: string;
+  showTagline?: boolean;
+}) {
   return (
     <span className={cn("inline-flex items-center gap-2", className)}>
       <LogoMark className={markClassName} />
-      <span className="text-lg font-bold tracking-tight">{brand.name}</span>
+      <span className="flex flex-col leading-tight">
+        <span className="text-lg font-bold tracking-tight">{brand.name}</span>
+        {showTagline ? (
+          <span className="text-[0.65rem] font-medium tracking-[0.15em] text-current/70 uppercase">
+            Digital Marketing
+          </span>
+        ) : null}
+      </span>
     </span>
   );
 }

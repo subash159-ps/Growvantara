@@ -11,14 +11,12 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="border-t border-border bg-muted/30">
+    <footer className="bg-navy text-navy-foreground">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-10 sm:grid-cols-3">
           <div>
-            <Logo />
-            <p className="mt-3 max-w-xs text-sm text-muted-foreground">
-              {brand.description}
-            </p>
+            <Logo className="text-navy-foreground" showTagline />
+            <p className="mt-3 max-w-xs text-sm text-navy-muted">{brand.description}</p>
             <div className="mt-5 flex gap-3">
               {socialLinks.map((social) => (
                 <a
@@ -27,7 +25,7 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={social.label}
-                  className="flex size-8 items-center justify-center rounded-full border border-border text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                  className="flex size-8 items-center justify-center rounded-full border border-white/15 text-navy-muted transition-colors hover:border-primary hover:text-primary"
                 >
                   <social.icon className="size-4" />
                 </a>
@@ -42,7 +40,7 @@ export function Footer() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className="text-sm text-muted-foreground hover:text-foreground"
+                    className="text-sm text-navy-muted hover:text-navy-foreground"
                   >
                     {item.label}
                   </Link>
@@ -53,14 +51,14 @@ export function Footer() {
 
           <div>
             <p className="text-sm font-semibold">Contact</p>
-            <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+            <ul className="mt-3 space-y-2 text-sm text-navy-muted">
               <li>
-                <a href={`mailto:${brand.email}`} className="hover:text-foreground">
+                <a href={`mailto:${brand.email}`} className="hover:text-navy-foreground">
                   {brand.email}
                 </a>
               </li>
               <li>
-                <a href={`tel:${brand.phone}`} className="hover:text-foreground">
+                <a href={`tel:${brand.phone}`} className="hover:text-navy-foreground">
                   {brand.phone}
                 </a>
               </li>
@@ -68,8 +66,8 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-border pt-6 sm:flex-row">
-          <p className="text-xs text-muted-foreground">
+        <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 sm:flex-row">
+          <p className="text-xs text-navy-muted">
             © {new Date().getFullYear()} {brand.name}. All rights reserved.
           </p>
           <div className="flex gap-4">
@@ -77,7 +75,7 @@ export function Footer() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-xs text-muted-foreground hover:text-foreground"
+                className="text-xs text-navy-muted hover:text-navy-foreground"
               >
                 {item.label}
               </Link>

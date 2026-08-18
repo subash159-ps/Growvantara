@@ -1,51 +1,100 @@
 import Link from "next/link";
-import { Sparkles } from "lucide-react";
+import { ArrowUpRight, Briefcase, MessageCircleHeart, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+
+const stats = [
+  { value: "7", label: "Core services offered" },
+  { value: "Free", label: "Initial consultation" },
+];
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border">
+    <section className="relative overflow-hidden bg-navy text-navy-foreground">
       <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,_var(--tw-gradient-stops))] from-primary/12 via-transparent to-transparent"
+        className="pointer-events-none absolute -top-32 left-1/3 -z-10 size-[32rem] rounded-full bg-primary/20 blur-3xl"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -top-24 right-0 -z-10 size-[28rem] rounded-full bg-brand-accent/15 blur-3xl"
+        className="pointer-events-none absolute -bottom-24 -right-24 -z-10 size-[26rem] rounded-full bg-brand-accent/20 blur-3xl"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(var(--border)_1px,transparent_1px)] [background-size:24px_24px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black_40%,transparent_100%)]"
+        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(color-mix(in_oklch,var(--navy-foreground),transparent_90%)_1px,transparent_1px)] [background-size:24px_24px]"
         aria-hidden
       />
 
-      <div className="mx-auto max-w-4xl px-4 py-24 text-center sm:px-6 sm:py-32">
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-3.5 py-1.5 text-xs font-medium text-muted-foreground shadow-sm backdrop-blur">
-          <Sparkles className="size-3.5 text-brand-accent" />
-          Digital Marketing Agency
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-2 lg:items-center lg:gap-8">
+        <div>
+          <p className="text-sm font-medium text-navy-muted">
+            Built for visibility.{" "}
+            <span className="text-primary">Designed for conversion.</span>
+          </p>
+
+          <h1 className="mt-4 text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+            Grow Your Business With Smarter Digital{" "}
+            <span className="bg-[linear-gradient(in_oklch_to_right,var(--primary),var(--brand-accent))] bg-clip-text text-transparent">
+              Marketing
+            </span>
+          </h1>
+          <p className="mt-6 max-w-lg text-pretty text-navy-muted">
+            Global Hood helps businesses build their online presence, attract
+            customers, and grow through digital marketing strategies.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <Button size="lg" nativeButton={false} render={<Link href="/contact" />}>
+              Get Free Consultation
+              <ArrowUpRight />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              nativeButton={false}
+              className="border-white/20 bg-transparent text-navy-foreground hover:bg-white/10 hover:text-navy-foreground"
+              render={<Link href="/services" />}
+            >
+              Explore Services
+            </Button>
+          </div>
+
+          <div className="mt-12 flex gap-10">
+            {stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-3xl font-bold">{stat.value}</p>
+                <p className="mt-1 text-sm text-navy-muted">{stat.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
-        <h1 className="mt-6 text-balance text-4xl font-bold tracking-tight sm:text-6xl">
-          Grow Your Business With Smarter Digital{" "}
-          <span className="bg-[linear-gradient(in_oklch_to_right,var(--primary),var(--brand-accent))] bg-clip-text text-transparent">
-            Marketing
-          </span>
-        </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg text-muted-foreground">
-          Global Hood helps businesses build their online presence, attract
-          customers, and grow through digital marketing strategies.
-        </p>
-        <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <Button size="lg" nativeButton={false} render={<Link href="/contact" />}>
-            Get Free Consultation
-          </Button>
-          <Button
-            size="lg"
-            variant="outline"
-            nativeButton={false}
-            render={<Link href="/services" />}
-          >
-            Explore Services
-          </Button>
+        <div className="grid grid-cols-2 gap-4">
+          <div className="col-span-2 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/5 p-6">
+            <div className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-white/10">
+              <TrendingUp className="size-7 text-primary" />
+            </div>
+            <div>
+              <p className="font-semibold">Strategy-led growth</p>
+              <p className="mt-1 text-sm text-navy-muted">
+                Every campaign starts with your business goals.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-between rounded-2xl bg-primary p-5 text-primary-foreground">
+            <Briefcase className="size-6" />
+            <div className="mt-4">
+              <p className="text-2xl font-bold">7+</p>
+              <p className="text-sm font-medium">Services covered</p>
+            </div>
+          </div>
+
+          <div className="flex flex-col justify-between rounded-2xl bg-brand-accent p-5 text-brand-accent-foreground">
+            <MessageCircleHeart className="size-6" />
+            <div className="mt-4">
+              <p className="text-lg font-bold">Free</p>
+              <p className="text-sm font-medium">Consultation call</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

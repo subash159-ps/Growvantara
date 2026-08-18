@@ -21,10 +21,10 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 bg-navy text-navy-foreground">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="shrink-0">
-          <Logo />
+          <Logo className="text-navy-foreground" showTagline />
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
@@ -35,10 +35,10 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  "rounded-full px-3 py-2 text-sm font-medium transition-colors",
                   active
-                    ? "text-foreground"
-                    : "text-muted-foreground hover:text-foreground",
+                    ? "text-navy-foreground"
+                    : "text-navy-muted hover:text-navy-foreground",
                 )}
               >
                 {item.label}
@@ -56,7 +56,12 @@ export function Navbar() {
         <Sheet open={open} onOpenChange={setOpen}>
           <SheetTrigger
             render={
-              <Button variant="ghost" size="icon" className="md:hidden" aria-label="Open menu" />
+              <Button
+                variant="ghost"
+                size="icon"
+                className="text-navy-foreground hover:bg-white/10 hover:text-navy-foreground md:hidden"
+                aria-label="Open menu"
+              />
             }
           >
             <Menu className="size-5" />
@@ -64,7 +69,7 @@ export function Navbar() {
           <SheetContent side="right">
             <SheetHeader>
               <SheetTitle>
-                <Logo />
+                <Logo showTagline />
               </SheetTitle>
             </SheetHeader>
             <nav className="flex flex-col gap-1 px-4">
