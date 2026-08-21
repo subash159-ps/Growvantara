@@ -13,23 +13,29 @@ import {
   Settings,
   LogOut,
   ExternalLink,
+  BarChart3,
+  Building2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { brand } from "@/lib/brand";
+import type { UserRole } from "@/app/generated/prisma/client";
 
-const links = [
-  { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { href: "/admin/leads", label: "Leads", icon: Users },
-  { href: "/admin/services", label: "Services", icon: Briefcase },
-  { href: "/admin/portfolio", label: "Portfolio", icon: ImageIcon },
-  { href: "/admin/blog", label: "Blog", icon: Newspaper },
-  { href: "/admin/testimonials", label: "Testimonials", icon: Quote },
-  { href: "/admin/settings", label: "Settings", icon: Settings },
-];
-
-export function AdminSidebar() {
+export function AdminSidebar({ role }: { role?: UserRole }) {
   const pathname = usePathname();
+  const isStaff = role != null;
+
+  const links = [
+    { href: "/admin/dashboard", label: "Dashboard", icon: LayoutDashboard },
+    { href: "/admin/leads", label: "Leads", icon: Users },
+    { href: "/admin/services", label: "Services", icon: Briefcase },
+    { href: "/admin/portfolio", label: "Portfolio", icon: ImageIcon },
+    { href: "/admin/blog", label: "Blog", icon: Newspaper },
+    { href: "/admin/testimonials", label: "Testimonials", icon: Quote },
+    ...(isStaff ? [{ href: "/admin/campaigns", label: "Campaigns", icon: BarChart3 }] : []),
+    ...(isStaff ? [{ href: "/admin/clients", label: "Clients", icon: Building2 }] : []),
+    { href: "/admin/settings", label: "Settings", icon: Settings },
+  ];
 
   return (
     <aside className="flex h-full w-64 shrink-0 flex-col border-r border-border bg-muted/20">

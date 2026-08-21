@@ -21,13 +21,51 @@ enum PortfolioType {
   CONCEPT
 }
 
+enum UserRole {
+  SUPER_ADMIN
+  ADMIN
+  CAMPAIGN_MANAGER
+  ANALYST
+}
+
+enum CampaignChannel {
+  GOOGLE_ADS
+  META_ADS
+  SEO
+  SOCIAL_MEDIA
+  EMAIL
+  CONTENT
+  OTHER
+}
+
+enum CampaignStatus {
+  PLANNED
+  ACTIVE
+  PAUSED
+  COMPLETED
+}
+
 model User {
-  id           String   @id @default(cuid())
-  email        String   @unique
-  passwordHash String
-  name         String
-  role         String   @default("ADMIN")
-  createdAt    DateTime @default(now())
+  id               String     @id @default(cuid())
+  email            String     @unique
+  passwordHash     String
+  name             String
+  role             UserRole   @default(ADMIN)
+  createdAt        DateTime   @default(now())
+  managedCampaigns Campaign[] @relation("CampaignManager")
+}
+
+model Client {
+  id          String     @id @default(cuid())
+  name        String
+  contactName String?
+  email       String?
+  phone       String?
+  notes       String?
+  active      Boolean    @default(true)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  campaigns   Campaign[]
 }
 
 model Service {
@@ -95,4 +133,29 @@ model SiteSetting {
   id    String @id @default(cuid())
   key   String @unique
   value String
+}
+
+model Campaign {
+  id             String          @id @default(cuid())
+  name           String
+  channel        CampaignChannel
+  status         CampaignStatus  @default(PLANNED)
+  budget         Float?
+  spend          Float           @default(0)
+  startDate      DateTime
+  endDate        DateTime?
+  impressions    Int             @default(0)
+  clicks         Int             @default(0)
+  leadsGenerated Int             @default(0)
+  conversions    Int             @default(0)
+  notes          String?
+  clientId       String
+  client         Client          @relation(fields: [clientId], references: [id], onDelete: Restrict)
+  managerId      String?
+  manager        User?           @relation("CampaignManager", fields: [managerId], references: [id], onDelete: SetNull)
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+
+  @@index([clientId])
+  @@index([managerId])
 }

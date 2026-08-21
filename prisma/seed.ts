@@ -83,6 +83,35 @@ async function main() {
     });
   }
   console.log(`Seeded ${services.length} services.`);
+
+  const managerEmail = process.env.SEED_MANAGER_EMAIL ?? "manager@globalhood.example";
+  const managerPasswordHash = await bcrypt.hash(
+    process.env.SEED_MANAGER_PASSWORD ?? "changeme123",
+    12,
+  );
+  await prisma.user.upsert({
+    where: { email: managerEmail },
+    update: {},
+    create: {
+      email: managerEmail,
+      passwordHash: managerPasswordHash,
+      name: "Sample Campaign Manager",
+      role: "CAMPAIGN_MANAGER",
+    },
+  });
+  console.log(`Seeded campaign manager user: ${managerEmail}`);
+
+  const client = await prisma.client.upsert({
+    where: { id: "seed-sample-client" },
+    update: {},
+    create: {
+      id: "seed-sample-client",
+      name: "Sample Client Co.",
+      contactName: "Jordan Lee",
+      email: "jordan@sampleclient.example",
+    },
+  });
+  console.log(`Seeded sample client: ${client.name}`);
 }
 
 main()
