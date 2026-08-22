@@ -4,6 +4,7 @@ import { ServicesSection } from "@/components/sections/services-section";
 import { WhySection } from "@/components/sections/why-section";
 import { ProcessSection } from "@/components/sections/process-section";
 import { PortfolioSection } from "@/components/sections/portfolio-section";
+import { CampaignsSection } from "@/components/sections/campaigns-section";
 import { CaseStudiesSection } from "@/components/sections/case-studies-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FaqSection } from "@/components/sections/faq-section";
@@ -16,7 +17,7 @@ import { jsonLdScript } from "@/lib/seo/json-ld";
 export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const [services, portfolioItems, testimonials] = await Promise.all([
+  const [services, portfolioItems, campaigns, testimonials] = await Promise.all([
     prisma.service.findMany({
       where: { published: true },
       orderBy: { order: "asc" },
@@ -25,6 +26,12 @@ export default async function Home() {
     prisma.portfolio.findMany({
       where: { published: true },
       orderBy: { createdAt: "desc" },
+      take: 6,
+    }),
+    prisma.campaign.findMany({
+      where: { published: true },
+      select: { id: true, name: true, channel: true, publicSummary: true },
+      orderBy: { startDate: "desc" },
       take: 6,
     }),
     prisma.testimonial.findMany({
@@ -55,6 +62,7 @@ export default async function Home() {
       <WhySection />
       <ProcessSection />
       <PortfolioSection items={portfolioItems} />
+      <CampaignsSection campaigns={campaigns} />
       <CaseStudiesSection />
       <TestimonialsSection testimonials={testimonials} />
       <FaqSection />

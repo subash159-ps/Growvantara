@@ -23,29 +23,12 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { createCampaign, updateCampaign } from "@/lib/actions/campaigns";
+import { channelOptions, statusOptions, channelLabels, statusLabels } from "@/lib/campaigns";
 import type { Campaign, Client, User } from "@/app/generated/prisma/client";
 
 const UNASSIGNED = "__unassigned__";
-
-const channelOptions = [
-  { value: "GOOGLE_ADS", label: "Google Ads" },
-  { value: "META_ADS", label: "Meta Ads" },
-  { value: "SEO", label: "SEO" },
-  { value: "SOCIAL_MEDIA", label: "Social Media" },
-  { value: "EMAIL", label: "Email" },
-  { value: "CONTENT", label: "Content" },
-  { value: "OTHER", label: "Other" },
-];
-
-const statusOptions = [
-  { value: "PLANNED", label: "Planned" },
-  { value: "ACTIVE", label: "Active" },
-  { value: "PAUSED", label: "Paused" },
-  { value: "COMPLETED", label: "Completed" },
-];
-
-const channelItems = Object.fromEntries(channelOptions.map((o) => [o.value, o.label]));
-const statusItems = Object.fromEntries(statusOptions.map((o) => [o.value, o.label]));
+const channelItems = channelLabels;
+const statusItems = statusLabels;
 
 function toDateInputValue(date?: Date | null) {
   if (!date) return "";
@@ -99,6 +82,8 @@ export function CampaignFormDialog({
       notes: formData.get("notes"),
       clientId,
       managerId: managerId === UNASSIGNED ? "" : managerId,
+      published: canReassign ? formData.get("published") === "on" : undefined,
+      publicSummary: canReassign ? formData.get("publicSummary") : undefined,
     };
 
     try {
@@ -309,6 +294,34 @@ export function CampaignFormDialog({
               maxLength={2000}
             />
           </div>
+
+          {canReassign && (
+            <div className="space-y-4 rounded-lg border border-border p-4">
+              <div className="flex items-center gap-2">
+                <input
+                  id="published"
+                  name="published"
+                  type="checkbox"
+                  defaultChecked={campaign?.published ?? false}
+                  className="size-4 rounded border-input"
+                />
+                <Label htmlFor="published" className="font-normal">
+                  Show on public site
+                </Label>
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="publicSummary">Public summary</Label>
+                <Textarea
+                  id="publicSummary"
+                  name="publicSummary"
+                  defaultValue={campaign?.publicSummary ?? ""}
+                  rows={2}
+                  maxLength={500}
+                  placeholder="Visitor-facing description — never shown internally-only fields like spend or leads."
+                />
+              </div>
+            </div>
+          )}
 
           <DialogFooter>
             <Button type="submit" disabled={submitting}>

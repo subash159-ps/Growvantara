@@ -62,6 +62,20 @@ export function Footer() {
                   {brand.phone}
                 </a>
               </li>
+              <li>
+                <a
+                  href={brand.address.mapsUrl}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="hover:text-navy-foreground"
+                >
+                  {brand.address.lines.map((line) => (
+                    <span key={line} className="block">
+                      {line}
+                    </span>
+                  ))}
+                </a>
+              </li>
             </ul>
           </div>
         </div>

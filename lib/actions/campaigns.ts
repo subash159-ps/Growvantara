@@ -12,13 +12,14 @@ export async function createCampaign(input: unknown) {
   const campaign = await prisma.campaign.create({ data });
   logAdminAction(session.user.id, "campaign.create", campaign.id);
   revalidatePath("/admin/campaigns");
+  if (data.published) revalidatePath("/");
 }
 
 export async function updateCampaign(id: string, input: unknown) {
   const session = await requireSession();
   const existing = await prisma.campaign.findUnique({
     where: { id },
-    select: { clientId: true, managerId: true },
+    select: { clientId: true, managerId: true, published: true, publicSummary: true },
   });
   if (!existing) throw new Error("Campaign not found");
   if (!canManageCampaign(session, existing)) {
@@ -31,16 +32,22 @@ export async function updateCampaign(id: string, input: unknown) {
     // controls, but a crafted request could still include different values.
     data.clientId = existing.clientId;
     data.managerId = existing.managerId ?? undefined;
+    // Only admins decide what goes on the public site.
+    data.published = existing.published;
+    data.publicSummary = existing.publicSummary ?? undefined;
   }
 
   await prisma.campaign.update({ where: { id }, data });
   logAdminAction(session.user.id, "campaign.update", id);
   revalidatePath("/admin/campaigns");
+  if (data.published || existing.published) revalidatePath("/");
 }
 
 export async function deleteCampaign(id: string) {
   const session = await requireRole("SUPER_ADMIN", "ADMIN");
+  const existing = await prisma.campaign.findUnique({ where: { id }, select: { published: true } });
   await prisma.campaign.delete({ where: { id } });
   logAdminAction(session.user.id, "campaign.delete", id);
   revalidatePath("/admin/campaigns");
+  if (existing?.published) revalidatePath("/");
 }

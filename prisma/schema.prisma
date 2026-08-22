@@ -149,6 +149,8 @@ model Campaign {
   leadsGenerated Int             @default(0)
   conversions    Int             @default(0)
   notes          String?
+  published      Boolean         @default(false)
+  publicSummary  String?
   clientId       String
   client         Client          @relation(fields: [clientId], references: [id], onDelete: Restrict)
   managerId      String?

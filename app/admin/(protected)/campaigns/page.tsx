@@ -16,23 +16,7 @@ import {
 import { CampaignFormDialog } from "@/components/admin/campaign-form-dialog";
 import { DeleteButton } from "@/components/admin/delete-button";
 import { deleteCampaign } from "@/lib/actions/campaigns";
-
-const channelLabels: Record<string, string> = {
-  GOOGLE_ADS: "Google Ads",
-  META_ADS: "Meta Ads",
-  SEO: "SEO",
-  SOCIAL_MEDIA: "Social Media",
-  EMAIL: "Email",
-  CONTENT: "Content",
-  OTHER: "Other",
-};
-
-const statusLabels: Record<string, string> = {
-  PLANNED: "Planned",
-  ACTIVE: "Active",
-  PAUSED: "Paused",
-  COMPLETED: "Completed",
-};
+import { channelLabels, statusLabels } from "@/lib/campaigns";
 
 function formatCurrency(value: number) {
   return `$${value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
@@ -125,6 +109,7 @@ export default async function AdminCampaignsPage() {
               <TableHead>CTR</TableHead>
               <TableHead>CPL</TableHead>
               <TableHead>Dates</TableHead>
+              <TableHead>Site</TableHead>
               <TableHead className="text-right">Actions</TableHead>
             </TableRow>
           </TableHeader>
@@ -155,6 +140,13 @@ export default async function AdminCampaignsPage() {
                   <TableCell className="text-muted-foreground">
                     {campaign.startDate.toLocaleDateString()}
                     {campaign.endDate ? ` – ${campaign.endDate.toLocaleDateString()}` : ""}
+                  </TableCell>
+                  <TableCell>
+                    {campaign.published ? (
+                      <Badge variant="default">Public</Badge>
+                    ) : (
+                      <Badge variant="outline">Private</Badge>
+                    )}
                   </TableCell>
                   <TableCell className="flex justify-end gap-2">
                     {canEdit && (

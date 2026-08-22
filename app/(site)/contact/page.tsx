@@ -41,6 +41,34 @@ export default async function ContactPage() {
             {brand.email}
           </a>
         </p>
+
+        <div className="mt-6">
+          <p>
+            {brand.address.lines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
+          </p>
+          <a
+            href={brand.address.mapsUrl}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="mt-2 inline-block font-medium text-foreground hover:underline"
+          >
+            Get Directions
+          </a>
+        </div>
+
+        <div className="mt-6 overflow-hidden rounded-lg border border-border">
+          <iframe
+            src={brand.address.mapsEmbedUrl}
+            title="Global Hood location"
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+            className="h-72 w-full"
+          />
+        </div>
       </div>
     </section>
   );

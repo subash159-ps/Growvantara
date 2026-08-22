@@ -66,6 +66,8 @@ export const campaignSchema = z.object({
   notes: z.string().trim().max(2000).optional().or(z.literal("")),
   clientId: z.string().trim().min(1, "Client is required"),
   managerId: z.preprocess(emptyToUndefined, z.string().trim().min(1).optional()),
+  published: z.coerce.boolean().default(false),
+  publicSummary: z.string().trim().max(500).optional().or(z.literal("")),
 });
 
 export const clientSchema = z.object({
