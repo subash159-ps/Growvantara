@@ -41,6 +41,15 @@ export default async function ContactPage() {
             {brand.email}
           </a>
         </p>
+        <p className="mt-2">
+          Prefer to call? Reach us at{" "}
+          <a
+            href={`tel:${brand.phone.replace(/\s/g, "")}`}
+            className="font-medium text-foreground hover:underline"
+          >
+            {brand.phone}
+          </a>
+        </p>
 
         <div className="mt-6">
           <p>

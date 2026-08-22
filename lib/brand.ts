@@ -6,8 +6,8 @@ export const brand = {
   tagline: "Smarter Digital Marketing for Growing Businesses",
   description:
     "Global Hood helps businesses build their online presence, attract customers, and grow through digital marketing strategies.",
-  email: "hello@globalhood.example",
-  phone: "+1 (555) 010-1234",
+  email: "hello@globalhood.com",
+  phone: "+91 90597 80843",
   address: {
     lines: [
       "1-1-261, 1st Cross Road",

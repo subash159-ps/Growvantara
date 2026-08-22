@@ -58,7 +58,7 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href={`tel:${brand.phone}`} className="hover:text-navy-foreground">
+                <a href={`tel:${brand.phone.replace(/\s/g, "")}`} className="hover:text-navy-foreground">
                   {brand.phone}
                 </a>
               </li>
