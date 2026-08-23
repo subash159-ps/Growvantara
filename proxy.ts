@@ -3,6 +3,15 @@ import { auth } from "@/lib/auth/edge";
 
 export default auth((req) => {
   const { pathname } = req.nextUrl;
+
+  if (
+    process.env.MAINTENANCE_MODE === "true" &&
+    pathname !== "/maintenance" &&
+    !pathname.startsWith("/admin")
+  ) {
+    return NextResponse.redirect(new URL("/maintenance", req.url));
+  }
+
   const isLoginPage = pathname === "/admin/login";
   const isProtected = pathname.startsWith("/admin") && !isLoginPage;
 
@@ -18,5 +27,7 @@ export default auth((req) => {
 });
 
 export const config = {
-  matcher: ["/admin/:path*"],
+  matcher: [
+    "/((?!api|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)",
+  ],
 };
