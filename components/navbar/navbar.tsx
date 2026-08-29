@@ -35,8 +35,8 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "block py-[10px] font-medium! text-[18px] leading-6 text-[#161616] [font-family:var(--font-figtree),sans-serif] transition-opacity",
-                  active ? "opacity-100" : "opacity-70 hover:opacity-100",
+                  "block py-[10px] font-medium! text-[18px] leading-6 [font-family:var(--font-figtree),sans-serif] transition-colors hover:text-[#1d4ed8]",
+                  active ? "text-[#1d4ed8]" : "text-[#161616]",
                 )}
               >
                 {item.label}
