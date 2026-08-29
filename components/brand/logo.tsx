@@ -30,8 +30,8 @@ export function Logo({
       <span className="flex flex-col leading-tight">
         <span className="text-lg font-bold tracking-tight">{brand.name}</span>
         {showTagline ? (
-          <span className="text-[0.65rem] font-medium tracking-[0.15em] text-current/70 uppercase">
-DIGITAL TECHNOLOGY
+          <span className="text-[0.65rem] font-bold tracking-[0.15em] text-current/70 uppercase">
+            DIGITAL TECHNOLOGY
           </span>
         ) : null}
       </span>

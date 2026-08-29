@@ -21,13 +21,13 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 bg-navy text-navy-foreground">
+    <header className="sticky top-0 z-50 border-b border-border bg-white text-neutral-900">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="shrink-0">
-          <Logo className="text-navy-foreground" showTagline />
+          <Logo className="text-neutral-900" showTagline />
         </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
+        <nav className="hidden items-center gap-8 md:flex">
           {mainNav.map((item) => {
             const active = item.href === "/" ? pathname === "/" : pathname.startsWith(item.href);
             return (
@@ -35,10 +35,8 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 className={cn(
-                  "rounded-full px-3 py-2 text-sm font-medium transition-colors",
-                  active
-                    ? "text-navy-foreground"
-                    : "text-navy-muted hover:text-navy-foreground",
+                  "block py-[10px] font-medium! text-[18px] leading-6 text-[#161616] [font-family:var(--font-figtree),sans-serif] transition-opacity",
+                  active ? "opacity-100" : "opacity-70 hover:opacity-100",
                 )}
               >
                 {item.label}
@@ -59,7 +57,7 @@ export function Navbar() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="text-navy-foreground hover:bg-white/10 hover:text-navy-foreground md:hidden"
+                className="text-neutral-900 hover:bg-neutral-100 hover:text-neutral-900 md:hidden"
                 aria-label="Open menu"
               />
             }
