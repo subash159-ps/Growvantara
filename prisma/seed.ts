@@ -17,7 +17,7 @@ async function main() {
     create: {
       email: adminEmail,
       passwordHash,
-      name: "Global Hood Admin",
+      name: "Growvantara Admin",
       role: "ADMIN",
     },
   });

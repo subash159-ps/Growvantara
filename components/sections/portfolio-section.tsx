@@ -13,7 +13,7 @@ export function PortfolioSection({ items }: { items: Portfolio[] }) {
         <SectionHeading
           eyebrow="Our work"
           title="A look at what we build"
-          description="Global Hood is a new agency — these are demo and concept projects that show our capability while we build our client portfolio."
+          description="Growvantara is a new agency — these are demo and concept projects that show our capability while we build our client portfolio."
         />
 
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">

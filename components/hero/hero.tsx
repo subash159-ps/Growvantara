@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ArrowUpRight, Briefcase, MessageCircleHeart } from "lucide-react";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AnalyticsDashboardIllustration } from "@/components/illustrations/marketing-illustrations";
 
 const stats = [
   { value: "7", label: "Core services offered" },
@@ -25,24 +25,24 @@ export function Hero() {
       />
 
       <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-2 lg:items-center lg:gap-8">
-        <div>
+        <div className="motion-safe:[&>*]:animate-in motion-safe:[&>*]:fade-in motion-safe:[&>*]:slide-in-from-bottom-4 motion-safe:[&>*]:fill-mode-both motion-safe:[&>*]:duration-700">
           <p className="text-sm font-medium text-muted-foreground">
             Built for visibility.{" "}
             <span className="text-primary">Designed for conversion.</span>
           </p>
 
-          <h1 className="mt-4 text-balance text-4xl font-bold tracking-tight sm:text-5xl">
+          <h1 className="mt-4 text-balance text-4xl font-bold tracking-tight motion-safe:delay-100 sm:text-5xl">
             Grow Your Business With Smarter Digital{" "}
             <span className="bg-[linear-gradient(in_oklch_to_right,var(--primary),var(--brand-accent))] bg-clip-text text-transparent">
               Marketing
             </span>
           </h1>
-          <p className="mt-6 max-w-lg text-pretty text-muted-foreground">
-            Global Hood helps businesses build their online presence, attract
+          <p className="mt-6 max-w-lg text-pretty text-muted-foreground motion-safe:delay-200">
+            Growvantara helps businesses build their online presence, attract
             customers, and grow through digital marketing strategies.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3 motion-safe:delay-300">
             <Button size="lg" nativeButton={false} render={<Link href="/contact" />}>
               Get Free Consultation
               <ArrowUpRight />
@@ -57,7 +57,7 @@ export function Hero() {
             </Button>
           </div>
 
-          <div className="mt-12 flex gap-10">
+          <div className="mt-12 flex gap-10 motion-safe:delay-500">
             {stats.map((stat) => (
               <div key={stat.label}>
                 <p className="text-3xl font-bold">{stat.value}</p>
@@ -67,30 +67,15 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
-          <div className="col-span-2 rounded-2xl border border-border bg-card p-6 shadow-sm">
-            <AnalyticsDashboardIllustration className="h-auto w-full" />
-            <p className="mt-4 font-semibold">Strategy-led growth</p>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Every campaign starts with your business goals.
-            </p>
-          </div>
-
-          <div className="flex flex-col justify-between rounded-2xl bg-primary p-5 text-primary-foreground shadow-sm">
-            <Briefcase className="size-6" />
-            <div className="mt-4">
-              <p className="text-2xl font-bold">7+</p>
-              <p className="text-sm font-medium">Services covered</p>
-            </div>
-          </div>
-
-          <div className="flex flex-col justify-between rounded-2xl bg-brand-accent p-5 text-brand-accent-foreground shadow-sm">
-            <MessageCircleHeart className="size-6" />
-            <div className="mt-4">
-              <p className="text-lg font-bold">Free</p>
-              <p className="text-sm font-medium">Consultation call</p>
-            </div>
-          </div>
+        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-95 motion-safe:slide-in-from-right-6 motion-safe:fill-mode-both motion-safe:duration-1000 motion-safe:delay-200">
+          <Image
+            src="/hero-banner-v2.png"
+            alt="Growvantara Digital Technology agency for all business"
+            width={1024}
+            height={665}
+            priority
+            className="h-auto w-full motion-safe:animate-float"
+          />
         </div>
       </div>
     </section>

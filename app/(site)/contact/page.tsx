@@ -72,7 +72,7 @@ export default async function ContactPage() {
         <div className="mt-6 overflow-hidden rounded-lg border border-border">
           <iframe
             src={brand.address.mapsEmbedUrl}
-            title="Global Hood location"
+            title="Growvantara location"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
             className="h-72 w-full"

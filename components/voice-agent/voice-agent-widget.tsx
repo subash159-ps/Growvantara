@@ -37,7 +37,7 @@ export function VoiceAgentWidget() {
           className="fixed bottom-6 right-6 z-[60] rounded-full shadow-lg"
           onClick={() => setOpen(true)}
         >
-          <Mic /> Talk to Global Hood
+          <Mic /> Talk to Growvantara
         </Button>
       )}
 
@@ -45,7 +45,7 @@ export function VoiceAgentWidget() {
         <Card className="fixed bottom-6 right-6 z-[60] w-[calc(100%-2rem)] max-w-sm">
           <CardHeader className="flex-row items-center justify-between">
             <CardTitle className="flex items-center gap-2">
-              🎙️ Global Hood AI
+              🎙️ Growvantara AI
               <span
                 className={cn(
                   "rounded-full px-2 py-0.5 text-xs font-normal",

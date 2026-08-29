@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { Logo } from "@/components/brand/logo";
-import { FacebookIcon, InstagramIcon, LinkedinIcon } from "@/components/brand/social-icons";
+import { FacebookBadge, InstagramBadge, LinkedinBadge } from "@/components/brand/social-icons";
 import { brand, footerNav, mainNav } from "@/lib/brand";
 
 const socialLinks = [
-  { href: brand.social.instagram, label: "Instagram", icon: InstagramIcon },
-  { href: brand.social.linkedin, label: "LinkedIn", icon: LinkedinIcon },
-  { href: brand.social.facebook, label: "Facebook", icon: FacebookIcon },
+  { href: brand.social.instagram, label: "Instagram", icon: InstagramBadge },
+  { href: brand.social.linkedin, label: "LinkedIn", icon: LinkedinBadge },
+  { href: brand.social.facebook, label: "Facebook", icon: FacebookBadge },
 ];
 
 export function Footer() {
@@ -25,9 +25,9 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer noopener"
                   aria-label={social.label}
-                  className="flex size-8 items-center justify-center rounded-full border border-white/15 text-navy-muted transition-colors hover:border-primary hover:text-primary"
+                  className="flex size-9 items-center justify-center rounded-full transition-opacity hover:opacity-80"
                 >
-                  <social.icon className="size-4" />
+                  <social.icon className="size-9" />
                 </a>
               ))}
             </div>

@@ -26,7 +26,7 @@ export default async function PortfolioPage() {
         <SectionHeading
           eyebrow="Our work"
           title="Portfolio"
-          description="Global Hood is a growing agency. Every item below is a demo website, sample campaign, or concept project — clearly labeled — that shows the kind of work we do. Real client case studies will join this page as engagements complete."
+          description="Growvantara is a growing agency. Every item below is a demo website, sample campaign, or concept project — clearly labeled — that shows the kind of work we do. Real client case studies will join this page as engagements complete."
         />
       </section>
 

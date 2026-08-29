@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/db";
 import { SectionHeading } from "@/components/sections/section-heading";
+import { Reveal } from "@/components/ui/reveal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { brand } from "@/lib/brand";
 
@@ -60,6 +62,17 @@ export default async function BlogPage() {
           Explore expert tips and actionable strategies across SEO, paid advertising, social media,
           content marketing, website optimization, and digital growth.
         </p>
+        <Reveal className="mx-auto mt-10 max-w-md">
+          <Image
+            src="/blog-hero.jpg"
+            alt="Growvantara blog"
+            width={612}
+            height={344}
+            priority
+            sizes="(min-width: 448px) 448px, 100vw"
+            className="h-auto w-full rounded-xl ring-1 ring-foreground/10"
+          />
+        </Reveal>
       </section>
 
       <section className="mx-auto max-w-4xl px-4 pb-20 sm:px-6">

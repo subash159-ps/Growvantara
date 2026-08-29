@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/db";
-import { leadSchema } from "@/lib/validation/lead";
+import { validateLead } from "@/lib/validation/lead";
 import { sendLeadNotification } from "@/lib/email";
 import { getClientIp, isRateLimited } from "@/lib/security/rate-limit";
 
@@ -20,10 +20,10 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: "Invalid request body" }, { status: 400 });
   }
 
-  const parsed = leadSchema.safeParse(body);
+  const parsed = validateLead(body);
   if (!parsed.success) {
     return NextResponse.json(
-      { error: "Invalid input", issues: parsed.error.flatten() },
+      { error: "Please check the form and try again.", fieldErrors: parsed.errors },
       { status: 400 },
     );
   }

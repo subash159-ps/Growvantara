@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar/navbar";
 import { Footer } from "@/components/footer/footer";
+import { ContactFloat } from "@/components/contact-float";
 import { VoiceAgentWidget } from "@/components/voice-agent/voice-agent-widget";
 
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
@@ -8,6 +9,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <Navbar />
       <main className="flex-1">{children}</main>
       <Footer />
+      <ContactFloat />
       <VoiceAgentWidget />
     </div>
   );

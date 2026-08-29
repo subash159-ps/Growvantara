@@ -17,7 +17,7 @@ export function CaseStudiesSection() {
       <SectionHeading
         eyebrow="Case studies"
         title="How we approach real growth problems"
-        description="Global Hood is new, so these are concept case studies that show our methodology — not verified client results."
+        description="Growvantara is new, so these are concept case studies that show our methodology — not verified client results."
       />
 
       <div className="mt-12 grid gap-6 lg:grid-cols-3">

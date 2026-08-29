@@ -2,11 +2,11 @@ const addressQuery =
   "1-1-261, 1st Cross Road, Srinivasa Nagar Colony, Near St. High School, A S Rao Nagar, Kapra, Hyderabad 500062";
 
 export const brand = {
-  name: "Global Hood",
+  name: "Growvantara",
   tagline: "Smarter Digital Marketing for Growing Businesses",
   description:
-    "Global Hood helps businesses build their online presence, attract customers, and grow through digital marketing strategies.",
-  email: "hello@globalhood.com",
+    "Growvantara helps businesses build their online presence, attract customers, and grow through digital marketing strategies.",
+  email: "hello@growvantara.in",
   phone: "+91 90597 80843",
   address: {
     lines: [
@@ -18,9 +18,9 @@ export const brand = {
     mapsEmbedUrl: `https://www.google.com/maps?q=${encodeURIComponent(addressQuery)}&output=embed`,
   },
   social: {
-    instagram: "https://instagram.com/globalhood",
-    linkedin: "https://linkedin.com/company/globalhood",
-    facebook: "https://facebook.com/globalhood",
+    instagram: "https://instagram.com/growvantara",
+    linkedin: "https://linkedin.com/company/growvantara",
+    facebook: "https://facebook.com/growvantara",
   },
 } as const;
 

@@ -18,7 +18,7 @@ export default function CaseStudiesPage() {
         <SectionHeading
           eyebrow="Case studies"
           title="How we approach growth"
-          description="Global Hood doesn't have verified client results to publish yet, so these are concept case studies — realistic scenarios that walk through our methodology. They'll be replaced with real client outcomes as engagements complete."
+          description="Growvantara doesn't have verified client results to publish yet, so these are concept case studies — realistic scenarios that walk through our methodology. They'll be replaced with real client outcomes as engagements complete."
         />
       </section>
 

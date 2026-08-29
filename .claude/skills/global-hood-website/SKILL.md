@@ -223,4 +223,4 @@ cookies, and audit logging for admin actions on leads/content.
    secrets.
 3. Provision managed PostgreSQL and run `npx prisma migrate deploy` against
    it.
-4. Point the production domain (globaltopdigitalmarketing.com) at the Vercel deployment.
+4. Point the production domain (growvantara.com) at the Vercel deployment.
