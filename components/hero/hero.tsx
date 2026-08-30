@@ -67,15 +67,29 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-95 motion-safe:slide-in-from-right-6 motion-safe:fill-mode-both motion-safe:duration-1000 motion-safe:delay-200">
+        <div className="@container relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-95 motion-safe:slide-in-from-right-6 motion-safe:fill-mode-both motion-safe:duration-1000 motion-safe:delay-200">
           <Image
-            src="/hero-banner-v2.png"
-            alt="Growvantara Digital Technology agency for all business"
+            src="/hero-banner-v3.png"
+            alt="Growvantara Digital Technologies agency for all business"
             width={1024}
             height={665}
             priority
             className="h-auto w-full motion-safe:animate-float"
           />
+          <div
+            className="pointer-events-none absolute inset-0 select-none motion-safe:animate-float"
+            aria-hidden
+          >
+            <span className="absolute inset-x-0 top-[17%] block text-center font-bold tracking-[0.04em] text-white text-[clamp(0.95rem,4.6cqw,1.95rem)] [text-shadow:0_0_20px_rgba(120,150,255,0.55)]">
+              GROWVANTARA
+            </span>
+            <span className="absolute inset-x-0 top-[30.5%] block text-center font-bold uppercase tracking-[0.06em] text-white/90 text-[clamp(0.62rem,2.8cqw,1.2rem)] [text-shadow:0_0_16px_rgba(120,150,255,0.5)]">
+              Digital Technologies
+            </span>
+            <span className="absolute inset-x-0 top-[43.5%] block text-center font-semibold uppercase tracking-[0.14em] text-white/85 text-[clamp(0.55rem,2.5cqw,1.05rem)]">
+              For All Business
+            </span>
+          </div>
         </div>
       </div>
     </section>
