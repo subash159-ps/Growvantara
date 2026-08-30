@@ -2,11 +2,11 @@ const addressQuery =
   "1-1-261, 1st Cross Road, Srinivasa Nagar Colony, Near St. High School, A S Rao Nagar, Kapra, Hyderabad 500062";
 
 export const brand = {
-  name: "Growvantara",
+  name: "Growvantra",
   tagline: "Smarter Digital Marketing for Growing Businesses",
   description:
-    "Growvantara helps businesses build their online presence, attract customers, and grow through digital marketing strategies.",
-  email: "hello@growvantara.in",
+    "Growvantra helps businesses build their online presence, attract customers, and grow through digital marketing strategies.",
+  email: "hello@growvantra.in",
   phone: "+91 90597 80843",
   address: {
     lines: [
@@ -18,9 +18,9 @@ export const brand = {
     mapsEmbedUrl: `https://www.google.com/maps?q=${encodeURIComponent(addressQuery)}&output=embed`,
   },
   social: {
-    instagram: "https://instagram.com/growvantara",
-    linkedin: "https://linkedin.com/company/growvantara",
-    facebook: "https://facebook.com/growvantara",
+    instagram: "https://instagram.com/growvantra",
+    linkedin: "https://linkedin.com/company/growvantra",
+    facebook: "https://facebook.com/growvantra",
   },
 } as const;
 

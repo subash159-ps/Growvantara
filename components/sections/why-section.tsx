@@ -33,7 +33,7 @@ export function WhySection() {
   return (
     <section className="border-y border-border bg-muted/30">
       <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6">
-        <SectionHeading eyebrow="Why Growvantara" title="A partner invested in your growth" />
+        <SectionHeading eyebrow="Why Growvantra" title="A partner invested in your growth" />
 
         <div className="mt-12 grid gap-10 lg:grid-cols-[minmax(0,320px)_1fr] lg:items-center">
           <div className="relative mx-auto w-full max-w-sm rounded-2xl border border-border bg-card p-6 shadow-sm lg:mx-0">

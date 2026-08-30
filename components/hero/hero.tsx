@@ -38,7 +38,7 @@ export function Hero() {
             </span>
           </h1>
           <p className="mt-6 max-w-lg text-pretty text-muted-foreground motion-safe:delay-200">
-            Growvantara helps businesses build their online presence, attract
+            Growvantra helps businesses build their online presence, attract
             customers, and grow through digital marketing strategies.
           </p>
 
@@ -70,7 +70,7 @@ export function Hero() {
         <div className="@container relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-95 motion-safe:slide-in-from-right-6 motion-safe:fill-mode-both motion-safe:duration-1000 motion-safe:delay-200">
           <Image
             src="/hero-banner-v3.png"
-            alt="Growvantara Digital Technologies agency for all business"
+            alt="Growvantra Digital Technologies agency for all business"
             width={1024}
             height={665}
             priority
@@ -81,7 +81,7 @@ export function Hero() {
             aria-hidden
           >
             <span className="absolute inset-x-0 top-[17%] block text-center font-bold tracking-[0.04em] text-white text-[clamp(0.95rem,4.6cqw,1.95rem)] [text-shadow:0_0_20px_rgba(120,150,255,0.55)]">
-              GROWVANTARA
+              GROWVANTRA
             </span>
             <span className="absolute inset-x-0 top-[30.5%] block text-center font-bold uppercase tracking-[0.06em] text-white/90 text-[clamp(0.62rem,2.8cqw,1.2rem)] [text-shadow:0_0_16px_rgba(120,150,255,0.5)]">
               Digital Technologies

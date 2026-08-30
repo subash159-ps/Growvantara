@@ -3,7 +3,7 @@ export default function MaintenancePage() {
     <main className="min-h-screen flex items-center justify-center px-6">
       <div className="text-center">
         <h1 className="text-4xl font-bold">
-          Growvantara
+          Growvantra
         </h1>
 
         <h2 className="mt-6 text-2xl font-semibold">

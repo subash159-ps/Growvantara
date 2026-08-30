@@ -65,7 +65,7 @@ export default async function BlogPage() {
         <Reveal className="mx-auto mt-10 max-w-md">
           <Image
             src="/blog-hero.jpg"
-            alt="Growvantara blog"
+            alt="Growvantra blog"
             width={612}
             height={344}
             priority

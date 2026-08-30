@@ -14,7 +14,7 @@ export function ContactCta() {
             Ready to grow your business?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty text-primary-foreground/80">
-            Get a free, no-obligation consultation and find out how Growvantara
+            Get a free, no-obligation consultation and find out how Growvantra
             can help you attract more customers.
           </p>
           <div className="mt-8">
