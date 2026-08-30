@@ -31,7 +31,7 @@ export function Logo({
         <span className="text-lg font-bold tracking-tight">{brand.name}</span>
         {showTagline ? (
           <span className="text-[0.65rem] font-bold tracking-[0.15em] text-current/70 uppercase">
-            DIGITAL TECHNOLOGY
+            DIGITAL TECHNOLOGIES
           </span>
         ) : null}
       </span>
