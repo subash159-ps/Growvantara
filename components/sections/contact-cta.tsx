@@ -10,7 +10,7 @@ export function ContactCta() {
           aria-hidden
         />
         <div className="relative">
-          <h2 className="text-balance text-3xl font-bold tracking-tight sm:text-4xl">
+          <h2 className="text-balance text-3xl font-bold tracking-tight text-primary-foreground sm:text-4xl">
             Ready to grow your business?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty text-primary-foreground/80">

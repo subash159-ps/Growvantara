@@ -24,7 +24,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 border-b border-border bg-white text-neutral-900">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <Link href="/" className="shrink-0">
-          <Logo className="text-neutral-900" showTagline />
+          <Logo showTagline />
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">

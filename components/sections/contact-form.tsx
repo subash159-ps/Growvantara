@@ -120,7 +120,11 @@ export function ContactForm({ services }: { services: Service[] }) {
   }
 
   return (
-    <form onSubmit={onSubmit} noValidate className="space-y-5">
+    <form
+      onSubmit={onSubmit}
+      noValidate
+      className="space-y-5 rounded-2xl border border-border bg-card p-6 shadow-lg sm:p-8"
+    >
       {/* Honeypot field — hidden from real users, catches simple bots. */}
       <div className="hidden" aria-hidden>
         <Label htmlFor="company_website">Website</Label>

@@ -37,7 +37,7 @@ export function Hero() {
               Marketing
             </span>
           </h1>
-          <p className="mt-6 max-w-lg text-pretty text-muted-foreground motion-safe:delay-200">
+          <p className="mt-6 max-w-lg text-pretty motion-safe:delay-200">
             Growvantra helps businesses build their online presence, attract
             customers, and grow through digital marketing strategies.
           </p>

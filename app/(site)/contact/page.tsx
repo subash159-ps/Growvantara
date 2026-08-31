@@ -34,10 +34,10 @@ export default async function ContactPage() {
         </Suspense>
       </div>
 
-      <div className="mt-12 border-t border-border pt-8 text-center text-sm text-muted-foreground">
+      <div className="mt-12 border-t border-border pt-8 text-center text-sm [color:#010920]">
         <p>
           Prefer email? Reach us at{" "}
-          <a href={`mailto:${brand.email}`} className="font-medium text-foreground hover:underline">
+          <a href={`mailto:${brand.email}`} className="font-medium [color:#010920] hover:underline">
             {brand.email}
           </a>
         </p>
@@ -45,7 +45,7 @@ export default async function ContactPage() {
           Prefer to call? Reach us at{" "}
           <a
             href={`tel:${brand.phone.replace(/\s/g, "")}`}
-            className="font-medium text-foreground hover:underline"
+            className="font-medium [color:#010920] hover:underline"
           >
             {brand.phone}
           </a>
@@ -63,7 +63,7 @@ export default async function ContactPage() {
             href={brand.address.mapsUrl}
             target="_blank"
             rel="noreferrer noopener"
-            className="mt-2 inline-block font-medium text-foreground hover:underline"
+            className="mt-2 inline-block font-medium [color:#010920] hover:underline"
           >
             Get Directions
           </a>

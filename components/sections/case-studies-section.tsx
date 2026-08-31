@@ -26,22 +26,22 @@ export function CaseStudiesSection() {
           return (
             <Card
               key={study.slug}
-              className="h-full shadow-md transition-all hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg"
+              className="group relative h-full min-h-[320px] rounded-[48px_8px] bg-[#3C1461] p-[32px_28px_40px_28px] text-white ring-0 shadow-[4px_4px_15px_0_rgba(0,0,0,0.15)] transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[8px_8px_25px_0_rgba(0,0,0,0.25)]"
             >
-              <CardHeader>
-                <div className="flex size-11 items-center justify-center rounded-lg bg-primary text-primary-foreground shadow-sm">
-                  <Icon className="size-5" strokeWidth={2.5} />
+              <CardHeader className="p-0">
+                <div className="flex size-16 items-center justify-center rounded-2xl bg-white transition-transform duration-500 ease-out group-hover:scale-110">
+                  <Icon className="size-7 text-[#3C1461]" strokeWidth={2.5} />
                 </div>
-                <Badge variant="secondary" className="mt-3 w-fit">
+                <Badge variant="secondary" className="mt-5 w-fit bg-white/15 text-white">
                   Concept Case Study
                 </Badge>
-                <CardTitle className="mt-2">{study.title}</CardTitle>
+                <CardTitle className="mt-2 text-xl font-bold text-white">{study.title}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-xs font-semibold uppercase tracking-wide text-primary">
+              <CardContent className="p-0">
+                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-orange-400">
                   {study.category}
                 </p>
-                <p className="mt-3 text-sm text-muted-foreground">{study.challenge}</p>
+                <p className="mt-3 text-sm text-white/85">{study.challenge}</p>
               </CardContent>
             </Card>
           );

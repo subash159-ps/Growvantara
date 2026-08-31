@@ -10,7 +10,7 @@ export function LogoMark({ className }: { className?: string }) {
       width={512}
       height={512}
       priority
-      className={cn("size-9 object-contain", className)}
+      className={cn("size-11 object-contain", className)}
     />
   );
 }
@@ -25,12 +25,12 @@ export function Logo({
   showTagline?: boolean;
 }) {
   return (
-    <span className={cn("inline-flex items-center gap-2", className)}>
+    <span className={cn("inline-flex items-center gap-1", className)}>
       <LogoMark className={markClassName} />
-      <span className="flex flex-col leading-tight">
-        <span className="text-lg font-bold tracking-tight">{brand.name}</span>
+      <span className="flex flex-col justify-center gap-0.5 rounded-md bg-[#1d4ed8] px-2 py-1 leading-tight">
+        <span className="text-sm font-bold tracking-tight text-white">{brand.name}</span>
         {showTagline ? (
-          <span className="text-[0.65rem] font-bold tracking-[0.15em] text-current/90 uppercase">
+          <span className="text-[0.5rem] font-bold tracking-[0.12em] text-white uppercase">
             DIGITAL TECHNOLOGIES
           </span>
         ) : null}

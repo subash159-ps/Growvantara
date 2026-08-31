@@ -37,15 +37,13 @@ export function ProcessSection() {
       <div className="mt-12 flex flex-col gap-6 lg:flex-row lg:items-stretch lg:gap-3">
         {steps.map((item, index) => (
           <Fragment key={item.step}>
-            <div className="flex-1 rounded-xl border border-border p-6 transition-colors hover:border-primary/40">
-              <div className="flex items-center justify-between">
-                <div className="flex size-10 items-center justify-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
-                  {item.step}
-                </div>
-                <item.icon className="size-5 text-primary/40" />
+            <div className="group relative flex h-full min-h-[320px] flex-1 flex-col items-start gap-2 rounded-[48px_8px] bg-[#3C1461] p-[32px_28px_40px_28px] text-base font-medium text-white shadow-[4px_4px_15px_0_rgba(0,0,0,0.15)] transition-all duration-500 ease-out hover:-translate-y-2 hover:shadow-[8px_8px_25px_0_rgba(0,0,0,0.25)]">
+              <div className="flex size-16 items-center justify-center rounded-2xl bg-white transition-transform duration-500 ease-out group-hover:scale-110">
+                <item.icon className="size-7 text-[#3C1461]" />
               </div>
-              <p className="mt-4 font-semibold">{item.title}</p>
-              <p className="mt-2 text-sm text-muted-foreground">{item.description}</p>
+              <p className="mt-5 text-xl font-bold">{item.title}</p>
+              <p className="mt-2 text-sm text-white/85">{item.description}</p>
+              <p className="mt-auto pt-6 text-sm font-semibold text-orange-400">Step {item.step}</p>
             </div>
             {index < steps.length - 1 ? (
               <div className="hidden items-center justify-center lg:flex" aria-hidden>
