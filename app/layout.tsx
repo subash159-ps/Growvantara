@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Figtree, Inter } from "next/font/google";
+import { Geist, Geist_Mono, Figtree, Inter, Baloo_2 } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import { brand } from "@/lib/brand";
@@ -26,6 +26,12 @@ const inter = Inter({
   weight: ["400", "500", "600", "700"],
 });
 
+const baloo2 = Baloo_2({
+  variable: "--font-hero",
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+});
+
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
   title: {
@@ -50,7 +56,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} ${figtree.variable} ${inter.variable} h-full antialiased`}
+      className={`${geistSans.variable} ${geistMono.variable} ${figtree.variable} ${inter.variable} ${baloo2.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         {children}

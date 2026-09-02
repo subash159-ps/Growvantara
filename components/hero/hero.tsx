@@ -1,95 +1,127 @@
-import Link from "next/link";
-import Image from "next/image";
-import { ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
+"use client";
 
-const stats = [
-  { value: "7", label: "Core services offered" },
-  { value: "Free", label: "Initial consultation" },
+import { useCallback, useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+type Slide = {
+  image: string;
+  alt: string;
+  heading: string;
+};
+
+const slides: Slide[] = [
+  {
+    image: "/hero/slide-1.jpg",
+    alt: "Laptop and phone showing an online store with a shopping cart and rising e-commerce growth chart",
+    heading: "Smart eCommerce & Digital Growth Solutions",
+  },
+  {
+    image: "/hero/slide-2.jpg",
+    alt: "Person in a suit drawing a rising bar chart and upward growth arrow",
+    heading: "Performance Marketing That Drives Real Revenue",
+  },
+  {
+    image: "/hero/slide-3.jpg",
+    alt: "Person writing notes at a desk beside a laptop",
+    heading: "SEO, Ads & Content Built to Convert",
+  },
 ];
 
+const AUTOPLAY_MS = 6000;
+
 export function Hero() {
+  const [current, setCurrent] = useState(0);
+
+  const goTo = useCallback((index: number) => {
+    setCurrent((index + slides.length) % slides.length);
+  }, []);
+
+  const next = useCallback(() => goTo(current + 1), [current, goTo]);
+  const prev = useCallback(() => goTo(current - 1), [current, goTo]);
+
+  useEffect(() => {
+    const id = window.setInterval(() => {
+      setCurrent((c) => (c + 1) % slides.length);
+    }, AUTOPLAY_MS);
+    return () => window.clearInterval(id);
+  }, [current]);
+
   return (
-    <section className="relative overflow-hidden bg-background text-foreground">
-      <div
-        className="pointer-events-none absolute -top-32 left-1/3 -z-10 size-[32rem] rounded-full bg-primary/10 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute -bottom-24 -right-24 -z-10 size-[26rem] rounded-full bg-brand-accent/10 blur-3xl"
-        aria-hidden
-      />
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 [background-image:radial-gradient(color-mix(in_oklch,var(--foreground),transparent_94%)_1px,transparent_1px)] [background-size:24px_24px]"
-        aria-hidden
-      />
+    <section
+      aria-roledescription="carousel"
+      aria-label="Highlights"
+      className="relative isolate w-full overflow-hidden bg-[#0a1a33] text-white"
+    >
+      <div className="relative h-[420px] w-full sm:h-[460px] lg:h-[500px]">
+        {slides.map((slide, index) => (
+          <div
+            key={slide.image}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`${index + 1} of ${slides.length}`}
+            aria-hidden={index !== current}
+            className={cn(
+              "absolute inset-0 transition-opacity duration-700 ease-out",
+              index === current ? "opacity-100" : "pointer-events-none opacity-0",
+            )}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={slide.image}
+              alt={slide.alt}
+              loading={index === 0 ? "eager" : "lazy"}
+              className="absolute inset-0 h-full w-full object-cover object-center"
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-[#050f22]/85 via-[#050f22]/40 to-transparent"
+              aria-hidden
+            />
+          </div>
+        ))}
 
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 py-20 sm:px-6 sm:py-28 lg:grid-cols-2 lg:items-center lg:gap-8">
-        <div className="motion-safe:[&>*]:animate-in motion-safe:[&>*]:fade-in motion-safe:[&>*]:slide-in-from-bottom-4 motion-safe:[&>*]:fill-mode-both motion-safe:[&>*]:duration-700">
-          <p className="text-sm font-medium text-muted-foreground">
-            Built for visibility.{" "}
-            <span className="text-primary">Designed for conversion.</span>
-          </p>
-
-          <h1 className="mt-4 text-balance text-4xl font-bold tracking-tight motion-safe:delay-100 sm:text-5xl">
-            Grow Your Business With Smarter Digital{" "}
-            <span className="bg-[linear-gradient(in_oklch_to_right,var(--primary),var(--brand-accent))] bg-clip-text text-transparent">
-              Marketing
-            </span>
+        <div className="relative z-10 mx-auto flex h-full max-w-6xl items-center px-8 sm:px-12 lg:px-16">
+          <h1
+            key={current}
+            className="max-w-[13ch] text-4xl font-extrabold leading-[1.08] text-white [font-family:var(--font-hero),system-ui,sans-serif] [text-shadow:0_2px_18px_rgba(0,0,0,0.35)] motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-3 motion-safe:duration-500 sm:text-5xl lg:text-[3.5rem]"
+          >
+            {slides[current].heading}
           </h1>
-          <p className="mt-6 max-w-lg text-pretty motion-safe:delay-200">
-            Growvantra helps businesses build their online presence, attract
-            customers, and grow through digital marketing strategies.
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3 motion-safe:delay-300">
-            <Button size="lg" nativeButton={false} render={<Link href="/contact" />}>
-              Get Free Consultation
-              <ArrowUpRight />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              nativeButton={false}
-              render={<Link href="/services" />}
-            >
-              Explore Services
-            </Button>
-          </div>
-
-          <div className="mt-12 flex gap-10 motion-safe:delay-500">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <p className="text-3xl font-bold">{stat.value}</p>
-                <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
 
-        <div className="@container relative overflow-hidden rounded-2xl border border-border bg-card shadow-sm motion-safe:animate-in motion-safe:fade-in motion-safe:zoom-in-95 motion-safe:slide-in-from-right-6 motion-safe:fill-mode-both motion-safe:duration-1000 motion-safe:delay-200">
-          <Image
-            src="/hero-banner-v3.png"
-            alt="Growvantra Digital Technologies agency for all business"
-            width={1024}
-            height={665}
-            priority
-            className="h-auto w-full motion-safe:animate-float"
-          />
-          <div
-            className="pointer-events-none absolute inset-0 select-none motion-safe:animate-float"
-            aria-hidden
-          >
-            <span className="absolute inset-x-0 top-[17%] block text-center font-bold tracking-[0.04em] text-white text-[clamp(0.95rem,4.6cqw,1.95rem)] [text-shadow:0_0_20px_rgba(120,150,255,0.55)]">
-              GROWVANTRA
-            </span>
-            <span className="absolute inset-x-0 top-[30.5%] block text-center font-bold uppercase tracking-[0.06em] text-white/90 text-[clamp(0.62rem,2.8cqw,1.2rem)] [text-shadow:0_0_16px_rgba(120,150,255,0.5)]">
-              Digital Technologies
-            </span>
-            <span className="absolute inset-x-0 top-[43.5%] block text-center font-semibold uppercase tracking-[0.14em] text-white/85 text-[clamp(0.55rem,2.5cqw,1.05rem)]">
-              For All Business
-            </span>
-          </div>
+        <button
+          type="button"
+          onClick={prev}
+          aria-label="Previous slide"
+          className="absolute left-3 top-1/2 z-20 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:left-5"
+        >
+          <ChevronLeft className="size-6" />
+        </button>
+        <button
+          type="button"
+          onClick={next}
+          aria-label="Next slide"
+          className="absolute right-3 top-1/2 z-20 grid size-11 -translate-y-1/2 place-items-center rounded-full bg-white/15 text-white backdrop-blur-sm transition hover:bg-white/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:right-5"
+        >
+          <ChevronRight className="size-6" />
+        </button>
+
+        <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 gap-2">
+          {slides.map((slide, index) => (
+            <button
+              key={slide.image}
+              type="button"
+              onClick={() => goTo(index)}
+              aria-label={`Go to slide ${index + 1}`}
+              aria-current={index === current}
+              className={cn(
+                "h-1.5 rounded-full transition-all",
+                index === current
+                  ? "w-8 bg-white"
+                  : "w-4 bg-white/40 hover:bg-white/60",
+              )}
+            />
+          ))}
         </div>
       </div>
     </section>
