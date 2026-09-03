@@ -12,18 +12,18 @@ type Slide = {
 
 const slides: Slide[] = [
   {
-    image: "/hero/slide-1.jpg",
-    alt: "Laptop and phone showing an online store with a shopping cart and rising e-commerce growth chart",
+    image: "/hero/slide-1.webp",
+    alt: "Glowing blue orb surrounded by colourful brand and app icons on a deep-blue backdrop",
     heading: "Smart eCommerce & Digital Growth Solutions",
   },
   {
-    image: "/hero/slide-2.jpg",
-    alt: "Person in a suit drawing a rising bar chart and upward growth arrow",
+    image: "/hero/slide-2.webp",
+    alt: "Businessperson holding a digital 'Increase Revenue' hologram with growth and target icons",
     heading: "Performance Marketing That Drives Real Revenue",
   },
   {
-    image: "/hero/slide-3.jpg",
-    alt: "Person writing notes at a desk beside a laptop",
+    image: "/hero/slide-3.webp",
+    alt: "Hands typing on a laptop overlaid with SEO, analytics and search icons",
     heading: "SEO, Ads & Content Built to Convert",
   },
 ];
